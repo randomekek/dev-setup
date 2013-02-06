@@ -14,5 +14,6 @@ alias cleangrep="egrep --color=never -v '\b(svn|log|branche|test|tag)s?\b'"
 alias vless="/usr/share/vim/vim63/macros/less.sh"
 alias untgz="tar -zxvf"
 alias ls="ls --color"
+# alias filetypes="find -type f | grep -v svn | grep -v test | rev | awk 'FS = "[./]" { print $1 }' | rev | sort | uniq -c | sort -g"
 export SVN_EDITOR=nano
 
