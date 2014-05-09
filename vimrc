@@ -1,9 +1,12 @@
 :map q :conf q<CR>
-:nnoremap <silent> [1;5C w<CR>
-:nnoremap <silent> [1;5D b<CR>
+:map f zfa{
+:map F zo
 :set autoindent
 :set expandtab
-:set tabstop=4
-:set shiftwidth=4
-:set softtabstop=4
+:set tabstop=2
+:set shiftwidth=2
+:set softtabstop=2
 :set nowrap
+:inoremap / <Esc>
+:inoremap ?? /
+:syntax on
