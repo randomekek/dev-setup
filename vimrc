@@ -1,5 +1,4 @@
-source /usr/share/vim/google/google.vim
-:map q :conf q<CR>
+:map q :call CloseBufferOrVim()<CR>
 :map f zfa{
 :map F zo
 :map <C-V> :r!cat<CR>
@@ -7,17 +6,39 @@ source /usr/share/vim/google/google.vim
 :inoremap / <Esc>
 :inoremap ?? /
 
+" to copy to ubuntu clipboard: "+yy
+" smart tabs
 :set autoindent
 :set expandtab
-:set smartcase
 :set tabstop=2
 :set shiftwidth=2
 :set softtabstop=2
-:set nohidden
+
+" ignore case
+:set ignorecase
+:set smartcase
+
+" cheat codes faster
+:set timeoutlen=220
+:set ttimeoutlen=20
+
+" netrw config
+:let g:netrw_hide=1
+:nnoremap <C-o> :Explore<CR>
+
+" show and hide search highlight
+:set hlsearch
+:nnoremap <C-l> :nohlsearch<CR><C-l>
+
+" misc settings
+:set hidden
 :set nowrap
 :set cc=80
+:set history=2000
 
-:syntax on
+" enable undo of closed files
+set undofile
+set undodir=/tmp/.vim_undo_randomekek
 
 " pane movement
 :nnoremap <C-j> <C-w>j
@@ -25,34 +46,41 @@ source /usr/share/vim/google/google.vim
 :nnoremap <C-l> <C-w>l
 :nnoremap <C-h> <C-w>h
 
-" buffer movement
-nnoremap <tab> :bn<CR>
-nnoremap <S-tab> :bp<CR>
+" buffer movement, unsaved changes are kept
+nnoremap <tab> :bn!<CR>
+nnoremap <S-tab> :bp!<CR>
 
-Glug youcompleteme-google
-let g:ycm_filetype_specific_completion_to_disable = {'cpp': 1, 'c': 1}
-
-function! G4diff()
-  vnew
-  r!G4MULTIDIFF=0 P4DIFF='diff -u' g4 diff
-  set filetype=diff
-  set buftype=nofile
-  set bufhidden=delete
-  normal! gg
+" quit vim
+function! NrBufs()
+  let i = bufnr('$')
+  let j = 0
+  while i >= 1
+    if buflisted(i)
+      let j+=1
+    endif
+    let i-=1
+  endwhile
+  return j
 endfunction
-:nnoremap <C-d> :call G4diff()<CR>
+function! CloseBufferOrVim()
+  if NrBufs() == 1
+    conf q
+  else
+    conf bw
+  endif
+endfunction
 
+" vundle
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'bling/vim-airline'
-Plugin 'majutsushi/tagbar'
 call vundle#end()
 filetype plugin indent on
 
 " bling/vim-airline
-:set laststatus=2
+:set laststatus=0
 :let g:airline_inactive_collapse = 0
 :let g:airline#extensions#whitespace#enabled = 0
 :let g:airline_section_b = ''
@@ -79,9 +107,7 @@ filetype plugin indent on
   \ '' : 'S',
   \ }
 
-" majutsushir/tagbar
-nnoremap <C-t> :TagbarToggle<CR>
-
+" colors
 syntax enable
 set background=light
 colorscheme solarized
