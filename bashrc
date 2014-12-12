@@ -7,13 +7,7 @@ alias ll='ls -alF'
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 export PS1="\[\e[0;34m\]\h \t \w>\[\e[m\] "
-alias less="less -SiR"
-alias grep="grep --color -i"
-alias rgrep="grep --color=always -R"
-alias cleangrep="egrep --color=never -v '\b(svn|log|branche|test|tag)s?\b'"
 alias vless="/usr/share/vim/vim63/macros/less.sh"
 alias untgz="tar -zxvf"
-alias ls="ls --color"
-# alias filetypes="find -type f | grep -v svn | grep -v test | rev | awk 'FS = "[./]" { print $1 }' | rev | sort | uniq -c | sort -g"
-export SVN_EDITOR=nano
-
+# this seems to fix solarized color issues inside tmux
+alias tmux="TERM=xterm-256color tmux"
