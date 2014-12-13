@@ -26,15 +26,12 @@
 :let g:netrw_hide=1
 :nnoremap <C-o> :Explore<CR>
 
-" show and hide search highlight
-:set hlsearch
-:nnoremap <C-l> :nohlsearch<CR><C-l>
-
 " misc settings
 :set hidden
 :set nowrap
 :set cc=80
 :set history=2000
+:set backspace=2
 
 " enable undo of closed files
 set undofile
@@ -76,6 +73,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'bling/vim-airline'
+Plugin 'blerins/flattown'
 call vundle#end()
 filetype plugin indent on
 
@@ -93,22 +91,14 @@ filetype plugin indent on
 :let g:airline#extensions#tabline#enabled = 1
 :let g:airline#extensions#tabline#buffer_idx_mode = 1
 :let g:airline#extensions#tabline#fnamemod = ':t'
-:let g:airline_mode_map = {
-  \ '__' : '-',
-  \ 'n'  : 'N',
-  \ 'i'  : 'I',
-  \ 'R'  : 'R',
-  \ 'c'  : 'C',
-  \ 'v'  : 'V',
-  \ 'V'  : 'V',
-  \ '' : 'V',
-  \ 's'  : 'S',
-  \ 'S'  : 'S',
-  \ '' : 'S',
-  \ }
 
 " colors
-syntax enable
-set background=light
-colorscheme solarized
-set t_Co=256
+let &t_8f="\e[38;2;%ld;%ld;%ldm"                                                                   
+let &t_8b="\e[48;2;%ld;%ld;%ldm"                                                                   
+set guicolors                                                                                      
+syntax enable                                                                                      
+colorscheme flattown
+
+" show and hide search highlight
+:set hlsearch
+:nnoremap <C-l> :nohlsearch<CR><C-l>
