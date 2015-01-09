@@ -74,6 +74,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'bling/vim-airline'
 Plugin 'blerins/flattown'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 
@@ -81,13 +82,6 @@ filetype plugin indent on
 :set laststatus=0
 :let g:airline_inactive_collapse = 0
 :let g:airline#extensions#whitespace#enabled = 0
-:let g:airline_section_b = ''
-:let g:airline_section_c = '%t'
-:let g:airline_section_x = ''
-:let g:airline_section_y = ''
-:let g:airline_section_z = '%l'
-:let g:airline_left_sep = ''
-:let g:airline_right_sep = ''
 :let g:airline#extensions#tabline#enabled = 1
 :let g:airline#extensions#tabline#buffer_idx_mode = 1
 :let g:airline#extensions#tabline#fnamemod = ':t'
@@ -98,6 +92,10 @@ let &t_8b="\e[48;2;%ld;%ld;%ldm"
 set guicolors                                                                                      
 syntax enable                                                                                      
 colorscheme flattown
+
+" highlight trailing spaces
+set list
+set listchars=tab:\ \ ,trail:·
 
 " show and hide search highlight
 :set hlsearch
