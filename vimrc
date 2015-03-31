@@ -52,7 +52,7 @@ set laststatus=0
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#fnamemod = ':t:s/^\([^.]\{15}\)[^.]*\.\(.*\)/\1..\2//'
+let g:airline#extensions#tabline#fnamemod = ':t:s/^\([^.]\{15}\)[^.]\+\.\(.*\)/\1..\2//'
 
 " Lokaltog/vim-easymotion
 map <Space> <Plug>(easymotion-s)
@@ -85,7 +85,7 @@ set number
 " map <C-V> :read!cat<CR>
 " imap <C-V> <Esc>:read!cat<CR>
 map <C-V> "+p
-imap <C-V> <Esc>l"+pa
+imap <C-V> <Esc> :exe 'normal! l | "+pa
 vmap <C-C> "+y
 
 " use / to exit normal mode, make it time out fast
@@ -100,12 +100,6 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-
-" make search smarter, ctrl-l clear search
-set hlsearch
-set ignorecase
-set smartcase
-nnoremap <C-l> :nohlsearch<CR><C-l>
 
 " make Y yank to end of line
 nnoremap Y y$
@@ -127,11 +121,9 @@ silent ! mkdir -p /tmp/vim_undo
 set undofile
 set undodir=/tmp/vim_undo
 
-" pane movement (broken due to clear search highlight C-l)
+" pane movement (search uses C-l)
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
 
 " buffer movement, unsaved changes are kept
 nnoremap <tab> :bn!<CR>
@@ -151,3 +143,10 @@ set list
 
 " control-enter inserts newline
 map <NL> i<CR><ESC>l
+
+" make search smarter, ctrl-l clear search
+set hlsearch
+set ignorecase
+set smartcase
+nnoremap <C-l> :nohlsearch<CR><C-l>
+map / <Plug>(easymotion-sn)
