@@ -6,10 +6,11 @@
 
 " functions
 function ShowDiff()
+  let diff_file = expand('%:p:h')
   enew
-  r! git diff
-  set filetype = diff
-  set buftype = nofile
+  silent execute 'r! cd "' . diff_file . '"; git diff'
+  set filetype=diff
+  set buftype=nofile
   silent f diff
   normal! gg
   join
@@ -43,6 +44,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'randomekek/vim-colors-solarized'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
@@ -56,6 +58,7 @@ let g:airline#extensions#tabline#fnamemod = ':t:s/^\([^.]\{15}\)[^.]\+\.\(.*\)/\
 
 " Lokaltog/vim-easymotion
 map <Space> <Plug>(easymotion-s)
+map / <Plug>(easymotion-sn)
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 
@@ -65,6 +68,14 @@ let g:ycm_warning_symbol = ">"
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
+
+" randomekek/vim-colors-solarized
+let g:solarized_24bit = 1
+let g:solarized_contrast = "high"
+let g:solarized_visibility = "high"
+let &t_8f="\e[38;2;%ld;%ld;%ldm"
+let &t_8b="\e[48;2;%ld;%ld;%ldm"
+set guicolors
 "=============================
 
 " show git diffs
@@ -80,13 +91,14 @@ set scrolloff=6
 set ruler
 set number
 
-" make ctrl-v paste
-" for systems without clipboard-vim integration
-" map <C-V> :read!cat<CR>
-" imap <C-V> <Esc>:read!cat<CR>
-map <C-V> "+p
-imap <C-V> <Esc> :exe 'normal! l | "+pa
-vmap <C-C> "+y
+" make ctrl-v paste for systems without clipboard
+map <C-V> :read!cat<CR>
+imap <C-V> <Esc>:read!cat<CR>
+
+" make ctrl-v paste for systems with clipboard
+" map <C-V> "+p
+" imap <C-V> <Esc> :exe 'normal! l | "+pa
+" vmap <C-C> "+y
 
 " use / to exit normal mode, make it time out fast
 inoremap / <Esc>
@@ -108,6 +120,7 @@ nnoremap Y y$
 let g:netrw_hide=1
 let g:netrw_banner=0
 let g:netrw_liststyle=2
+let g:netrw_cursor=0
 nnoremap <C-o> :Explore<CR>
 
 " misc settings
@@ -130,10 +143,10 @@ nnoremap <tab> :bn!<CR>
 nnoremap <S-tab> :bp!<CR>
 
 " colors
+" set t_Co=256
 syntax enable
 set background=light
 colorscheme solarized
-set t_Co=256
 hi MatchParen ctermbg=none cterm=none
 
 " trailing characters
@@ -149,4 +162,6 @@ set hlsearch
 set ignorecase
 set smartcase
 nnoremap <C-l> :nohlsearch<CR><C-l>
-map / <Plug>(easymotion-sn)
+
+" make backspace go through lines
+set backspace=indent,eol,start
