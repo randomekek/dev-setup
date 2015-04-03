@@ -44,7 +44,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'randomekek/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
@@ -53,8 +53,8 @@ filetype plugin indent on
 set laststatus=0
 let g:airline_inactive_collapse = 0
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#fnamemod = ':t:s/^\([^.]\{15}\)[^.]\+\.\(.*\)/\1..\2//'
+let g:airline#extensions#tabline#show_tab_type = 0
 
 " Lokaltog/vim-easymotion
 map <Space> <Plug>(easymotion-s)
@@ -69,13 +69,10 @@ let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
 
-" randomekek/vim-colors-solarized
-let g:solarized_24bit = 1
-let g:solarized_contrast = "high"
-let g:solarized_visibility = "high"
-let &t_8f="\e[38;2;%ld;%ld;%ldm"
-let &t_8b="\e[48;2;%ld;%ld;%ldm"
-set guicolors
+" altercation/vim-colors-solarized
+" let g:solarized_contrast = "high"
+" let g:solarized_visibility = "high"
+set t_Co=256
 "=============================
 
 " show git diffs
@@ -83,6 +80,13 @@ nnoremap <C-d> :call ShowDiff()<CR>
 
 " make q close buffers
 map q :call CloseSplitBufferOrVim()<CR>
+
+" allow utf8
+set encoding=utf-8
+setglobal fileencoding=utf-8
+
+" disable visual bell
+set visualbell
 
 " do not allow scrolling to top or bottom of page
 set scrolloff=6
@@ -143,7 +147,6 @@ nnoremap <tab> :bn!<CR>
 nnoremap <S-tab> :bp!<CR>
 
 " colors
-" set t_Co=256
 syntax enable
 set background=light
 colorscheme solarized
