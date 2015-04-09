@@ -101,7 +101,7 @@ imap <C-V> <Esc>:read!cat<CR>
 
 " make ctrl-v paste for systems with clipboard
 " map <C-V> "+p
-" imap <C-V> <Esc> :exe 'normal! l | "+pa
+" imap <C-V> <Esc>l:normal "+p<CR>a
 " vmap <C-C> "+y
 
 " use / to exit normal mode, make it time out fast
