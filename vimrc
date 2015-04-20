@@ -6,6 +6,7 @@
 
 " functions
 function ShowDiff()
+  silent! bdelete diff
   let diff_file = expand('%:p:h')
   enew
   silent execute 'r! cd "' . diff_file . '"; git diff'
