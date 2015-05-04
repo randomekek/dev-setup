@@ -128,6 +128,10 @@ let g:netrw_liststyle=2
 let g:netrw_cursor=0
 nnoremap <C-o> :Explore<CR>
 
+" set netrw sorting order (folders first, case insensitive)
+let g:netrw_sort_sequence="[\/]$"
+let g:netrw_sort_options="i"
+
 " misc settings
 set hidden
 set nowrap
