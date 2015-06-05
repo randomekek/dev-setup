@@ -1,0 +1,6 @@
+vf=scale
+af=scaletempo
+hardframedrop=true
+zoom=true
+ass=true
+utf8=true
