@@ -83,7 +83,7 @@ set completeopt-=preview
 set t_Co=256
 
 " yegappan/mru
-nnoremap <C-S-o> :MRU<CR>
+nnoremap <C-p> :MRU<CR>
 "=============================
 
 " show git diffs
