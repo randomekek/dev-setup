@@ -37,6 +37,11 @@ function CloseSplitBufferOrVim()
   endif
 endfunction
 
+" local changes
+if filereadable(glob("~/.vimrc.local")) 
+    source ~/.vimrc.local
+endif
+
 " plugins
 "=============================
 set nocompatible
@@ -46,6 +51,7 @@ call vundle#begin()
 Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'yegappan/mru'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
@@ -62,6 +68,7 @@ map <Space> <Plug>(easymotion-s)
 map / <Plug>(easymotion-sn)
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnm123fj.',;"
 
 " Valloric/YouCompleteMe
 let g:ycm_error_symbol = ">"
@@ -74,6 +81,9 @@ set completeopt-=preview
 " let g:solarized_contrast = "high"
 " let g:solarized_visibility = "high"
 set t_Co=256
+
+" yegappan/mru
+nnoremap <C-S-o> :MRU<CR>
 "=============================
 
 " show git diffs
