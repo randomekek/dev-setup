@@ -3,13 +3,27 @@
 " ca? - change around brackets
 " s/../../c - confirm replacements
 " "2p - paste previously deleted item
+" (selection)!python -c "import json, sys; print json.dumps(json.load(sys.stdin), indent=2)"
+" Use <C-o> in insert mode to enter normal mode for one command
 
 " functions
-function ShowDiff()
+function ShowDiffAll()
   silent! bdelete diff
-  let diff_file = expand('%:p:h')
+  let diff_path = expand('%:p:h')
   enew
-  silent execute 'r! cd "' . diff_file . '"; git diff'
+  silent execute 'r! cd "' . diff_path . '"; git diff'
+  set filetype=diff
+  set buftype=nofile
+  silent f diff
+  normal! gg
+  join
+endfunction
+function ShowDiffSingle()
+  silent! bdelete diff
+  let diff_path = expand('%:p:h')
+  let diff_file = expand('%:p')
+  enew
+  silent execute 'r! cd "' . diff_path . '"; git diff ' . diff_file
   set filetype=diff
   set buftype=nofile
   silent f diff
@@ -68,7 +82,7 @@ map <Space> <Plug>(easymotion-s)
 map / <Plug>(easymotion-sn)
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnm123fj.',;"
+let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnm123890-=.',;fj"
 
 " Valloric/YouCompleteMe
 let g:ycm_error_symbol = ">"
@@ -87,7 +101,8 @@ nnoremap <C-p> :MRU<CR>
 "=============================
 
 " show git diffs
-nnoremap <C-d> :call ShowDiff()<CR>
+nnoremap <C-d>d :call ShowDiffAll()<CR>
+nnoremap <C-d> :call ShowDiffSingle()<CR>
 
 " make q close buffers
 map q :call CloseSplitBufferOrVim()<CR>
@@ -108,12 +123,15 @@ set number
 
 " make ctrl-v paste for systems without clipboard
 map <C-V> :read!cat<CR>
-imap <C-V> <Esc>:read!cat<CR>
+imap <C-V> <C-o>:read!cat<CR>
 
 " make ctrl-v paste for systems with clipboard
 " map <C-V> "+p
-" imap <C-V> <Esc>:normal "+p<CR>a
+" imap <C-V> <C-R>+
 " vmap <C-C> "+y
+
+" get back visual block mode
+nnoremap vv <C-V>
 
 " use / to exit normal mode, make it time out fast
 inoremap / <Esc>
@@ -153,10 +171,6 @@ silent ! mkdir -p /tmp/vim_undo
 set undofile
 set undodir=/tmp/vim_undo
 
-" pane movement (search uses C-l)
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-
 " buffer movement, unsaved changes are kept
 nnoremap <tab> :bn!<CR>
 nnoremap <S-tab> :bp!<CR>
@@ -179,7 +193,7 @@ map <NL> i<CR><ESC>l
 set hlsearch
 set ignorecase
 set smartcase
-nnoremap <C-l> :nohlsearch<CR><C-l>
+nnoremap <C-l> :nohlsearch<CR>
 
 " make backspace go through lines
 set backspace=indent,eol,start
