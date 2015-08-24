@@ -127,7 +127,7 @@ imap <C-V> <C-o>:read!cat<CR>
 
 " make ctrl-v paste for systems with clipboard
 " map <C-V> "+p
-" imap <C-V> <C-R>+
+" imap <C-V> <C-o>"+p
 " vmap <C-C> "+y
 
 " get back visual block mode
