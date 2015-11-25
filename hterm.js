@@ -36,4 +36,8 @@ term_.prefs_.set('enable-bold', false);
 // Chose a font
 term_.prefs_.set('user-css', 'http://fonts.googleapis.com/css?family=Droid+Sans+Mono');
 term_.prefs_.set('font-family', '"Droid Sans Mono", monospace');
-term_.prefs_.set('font-size', 18)
+term_.prefs_.set('font-size', 16.7)
+
+// Increase vertical spacing (does not persist, need to redo it)
+term_.scrollPort_.characterSize.height = 22
+term_.scrollPort_.resize()
