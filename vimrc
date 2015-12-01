@@ -197,3 +197,6 @@ nnoremap <C-l> :nohlsearch<CR>
 
 " make backspace go through lines
 set backspace=indent,eol,start
+
+" save with minus
+map - :w<CR>
