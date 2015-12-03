@@ -5,6 +5,8 @@
 " "2p - paste previously deleted item
 " (selection)!python -c "import json, sys; print json.dumps(json.load(sys.stdin), indent=2)"
 " Use <C-o> in insert mode to enter normal mode for one command
+" Use <C-p> or :MRU to see most recently closed files
+" backtick for copy and paste `
 
 " functions
 function ShowDiffAll()
@@ -101,8 +103,8 @@ nnoremap <C-p> :MRU<CR>
 "=============================
 
 " show git diffs
-nnoremap <C-d>d :call ShowDiffAll()<CR>
-nnoremap <C-d> :call ShowDiffSingle()<CR>
+nnoremap <C-d> :call ShowDiffAll()<CR>
+nnoremap <C-d>d :call ShowDiffSingle()<CR>
 
 " make q close buffers
 map q :call CloseSplitBufferOrVim()<CR>
@@ -126,9 +128,9 @@ map <C-V> :read!cat<CR>
 imap <C-V> <C-o>:read!cat<CR>
 
 " make ctrl-v paste for systems with clipboard
-" map <C-V> "+P
-" imap <C-V> <C-r>+
-" vmap <C-C> "+y
+map <C-V> "+P
+imap <C-V> <C-r>+
+vmap <C-C> "+y
 
 " get back visual block mode
 nnoremap vv <C-V>
@@ -138,6 +140,11 @@ inoremap / <Esc>
 inoremap ?? /
 set timeoutlen=220
 set ttimeoutlen=20
+
+" some shortcuts for cpp
+inoremap .. ->
+inoremap bb ()
+inoremap ;; ::
 
 " smart tabs
 set autoindent
@@ -199,4 +206,4 @@ nnoremap <C-l> :nohlsearch<CR>
 set backspace=indent,eol,start
 
 " save with minus
-map - :w<CR>
+map - :w<CR>:nohlsearch<CR>
