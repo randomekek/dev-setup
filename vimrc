@@ -158,6 +158,7 @@ nnoremap Y y$
 
 " use netrw to open files
 let g:netrw_hide=1
+let g:netrw_list_hide='^\.'
 let g:netrw_banner=0
 let g:netrw_liststyle=2
 let g:netrw_cursor=0
@@ -200,7 +201,6 @@ map <NL> i<CR><ESC>l
 set hlsearch
 set ignorecase
 set smartcase
-nnoremap <C-l> :nohlsearch<CR>
 
 " make backspace go through lines
 set backspace=indent,eol,start
