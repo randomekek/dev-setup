@@ -143,7 +143,7 @@ set ttimeoutlen=20
 
 " some shortcuts for cpp
 inoremap .. ->
-inoremap bb ()
+inoremap 90 ()
 inoremap ;; ::
 
 " smart tabs
