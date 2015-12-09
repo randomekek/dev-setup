@@ -127,7 +127,7 @@ set number
 if empty($DISPLAY) || !has('xterm_clipboard')
   map <C-V> :read!cat<CR>
   imap <C-V> <C-o>:read!cat<CR>
-elseif 
+else 
   map <C-V> "+P
   imap <C-V> <C-r><C-o>+
   vmap <C-C> "+y
