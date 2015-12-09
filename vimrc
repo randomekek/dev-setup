@@ -123,14 +123,15 @@ set scrolloff=6
 set ruler
 set number
 
-" make ctrl-v paste for systems without clipboard
-map <C-V> :read!cat<CR>
-imap <C-V> <C-o>:read!cat<CR>
-
-" make ctrl-v paste for systems with clipboard
-map <C-V> "+P
-imap <C-V> <C-r>+
-vmap <C-C> "+y
+" use x integration if $DISPLAY is set
+if empty($DISPLAY) || !has('xterm_clipboard')
+  map <C-V> :read!cat<CR>
+  imap <C-V> <C-o>:read!cat<CR>
+elseif 
+  map <C-V> "+P
+  imap <C-V> <C-r><C-o>+
+  vmap <C-C> "+y
+endif
 
 " get back visual block mode
 nnoremap vv <C-V>
