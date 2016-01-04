@@ -208,3 +208,6 @@ set backspace=indent,eol,start
 
 " save with minus
 map - :w<CR>:nohlsearch<CR>
+
+" let cursor move beyond end
+set virtualedit=onemore
