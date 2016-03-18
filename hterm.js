@@ -25,7 +25,7 @@ term_.prefs_.set('color-palette-overrides', [
   s7d_colours.base2, s7d_colours.red, s7d_colours.green, s7d_colours.yellow, s7d_colours.blue,
   s7d_colours.magneta, s7d_colours.cyan, s7d_colours.base2, s7d_colours.base03, s7d_colours.orange,
   s7d_colours.base00, s7d_colours.base01, s7d_colours.magenta, s7d_colours.violet, s7d_colours.base0,
-  s7d_colours.base3]);
+  s7d_colours.base3, s7d_colours.base1, s7d_colours.base02]);
 
 // disable scrollbar (can still scroll)
 term_.prefs_.set('scrollbar-visible', false)
