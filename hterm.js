@@ -1,12 +1,13 @@
+var good_monitor = true;
 var s7d_colours = {
   'base03': '#002b36',
   'base02': '#073642',
-  'base01': '#4f646b', //'#586e75',
+  'base01': good_monitor ? '#586e75' : '#4f646b',
   'base00': '#657b83',
   'base0': '#839496',
   'base1': '#93a1a1',
   'base2': '#eee8d5',
-  'base3': '#faf5e8', //'#fdf6e3',
+  'base3': good_monitor ? '#fdf6e3' : '#faf5e8',
   'yellow': '#b58900',
   'orange': '#cb4b16',
   'red': '#dc322f',
@@ -19,7 +20,7 @@ var s7d_colours = {
 
 // Solarized Light
 term_.prefs_.set('background-color', s7d_colours.base3);
-term_.prefs_.set('foreground-color', s7d_colours.base01);
+term_.prefs_.set('foreground-color', good_monitor ? s7d_colours.base00 : s7d_colours.base01);
 term_.prefs_.set('cursor-color', 'rgba(0, 0, 0, 0.2)');
 term_.prefs_.set('color-palette-overrides', [
   s7d_colours.base2, s7d_colours.red, s7d_colours.green, s7d_colours.yellow, s7d_colours.blue,
