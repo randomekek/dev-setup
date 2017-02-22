@@ -65,23 +65,16 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'bling/vim-airline'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'yegappan/mru'
 Plugin 'wellle/targets.vim'
 Plugin 'eiginn/netrw'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'ap/vim-buftabline'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
-
-" bling/vim-airline
-set laststatus=0
-let g:airline_inactive_collapse = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t:s/^\([^.]\{15}\)[^.]\+\.\(.*\)/\1..\2//'
-let g:airline#extensions#tabline#show_tab_type = 0
 
 " Lokaltog/vim-easymotion
 map <Space> <Plug>(easymotion-s)
@@ -102,13 +95,22 @@ set completeopt-=preview
 " altercation/vim-colors-solarized
 " let g:solarized_contrast = "high"
 " let g:solarized_visibility = "high"
+syntax enable
+set background=light
 set t_Co=256
+colorscheme solarized
+hi MatchParen ctermbg=none cterm=none
 
 " yegappan/mru
 nnoremap <C-p> :MRU<CR>
 
 " nathanaelkane/vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
+
+" ap/vim-buftabline
+hi TabLine cterm=none
+hi TabLineFill cterm=none
+hi TabLineSel cterm=reverse
 "=============================
 
 " show git diffs
@@ -193,12 +195,6 @@ set undodir=/tmp/vim_undo
 nnoremap <tab> :bn!<CR>
 nnoremap <S-tab> :bp!<CR>
 
-" colors
-syntax enable
-set background=light
-colorscheme solarized
-hi MatchParen ctermbg=none cterm=none
-
 " trailing characters
 hi SpecialKey term=NONE cterm=NONE ctermbg=15 ctermfg=11
 set listchars=tab:\ \ ,trail:·
@@ -220,19 +216,3 @@ map - :w<CR>:nohlsearch<CR>
 
 " let cursor move beyond end
 set virtualedit=onemore
-
-" kill netrw when you leave a page (also kills empty pages). 
-function QuitNetrw()
-  for i in range(1, bufnr('$'))
-    if buflisted(i) 
-      if len(getbufline(i, 1, 10)) > 0
-        if strlen(getbufline(i, 1, 10)[0]) == 0
-          silent exe 'bw ' . i
-        endif
-      endif
-    endif
-  endfor
-endfunction
-
-" Disable before running VundleInstall
-autocmd BufLeave *  call QuitNetrw()
