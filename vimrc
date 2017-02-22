@@ -70,6 +70,8 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'yegappan/mru'
 Plugin 'wellle/targets.vim'
+Plugin 'eiginn/netrw'
+Plugin 'nathanaelkane/vim-indent-guides'
 " Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
@@ -87,12 +89,14 @@ map / <Plug>(easymotion-sn)
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnm123890-=.',;fj"
+let g:EasyMotion_enter_jump_first = 1
 
 " Valloric/YouCompleteMe
 let g:ycm_error_symbol = ">"
 let g:ycm_warning_symbol = ">"
 let g:ycm_enable_diagnostic_highlighting = 0
 let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_disable_for_files_larger_than_kb = 100
 set completeopt-=preview
 
 " altercation/vim-colors-solarized
@@ -102,6 +106,9 @@ set t_Co=256
 
 " yegappan/mru
 nnoremap <C-p> :MRU<CR>
+
+" nathanaelkane/vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
 "=============================
 
 " show git diffs
@@ -213,3 +220,19 @@ map - :w<CR>:nohlsearch<CR>
 
 " let cursor move beyond end
 set virtualedit=onemore
+
+" kill netrw when you leave a page (also kills empty pages). 
+function QuitNetrw()
+  for i in range(1, bufnr('$'))
+    if buflisted(i) 
+      if len(getbufline(i, 1, 10)) > 0
+        if strlen(getbufline(i, 1, 10)[0]) == 0
+          silent exe 'bw ' . i
+        endif
+      endif
+    endif
+  endfor
+endfunction
+
+" Disable before running VundleInstall
+autocmd BufLeave *  call QuitNetrw()
