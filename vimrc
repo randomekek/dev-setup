@@ -69,10 +69,10 @@ Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'yegappan/mru'
 Plugin 'wellle/targets.vim'
-Plugin 'eiginn/netrw'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'ap/vim-buftabline'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'lifepillar/vim-mucomplete'
+Plugin 'ap/vim-readdir'
 call vundle#end()
 filetype plugin indent on
 
@@ -83,14 +83,6 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnm123890-=.',;fj"
 let g:EasyMotion_enter_jump_first = 1
-
-" Valloric/YouCompleteMe
-let g:ycm_error_symbol = ">"
-let g:ycm_warning_symbol = ">"
-let g:ycm_enable_diagnostic_highlighting = 0
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_disable_for_files_larger_than_kb = 100
-set completeopt-=preview
 
 " altercation/vim-colors-solarized
 " let g:solarized_contrast = "high"
@@ -111,6 +103,16 @@ let g:indent_guides_enable_on_vim_startup = 1
 hi TabLine cterm=none
 hi TabLineFill cterm=none
 hi TabLineSel cterm=reverse
+
+" lifepillar/vim-mucomplete
+set shortmess+=c
+set completeopt=menuone,noinsert,noselect
+set complete=.,b
+let g:mucomplete#enable_auto_at_startup = 1
+
+" ap/vim-readdir
+let g:loaded_netrwPlugin = 1
+nnoremap <C-o> :e %:p:h<CR>
 "=============================
 
 " show git diffs
@@ -168,18 +170,6 @@ set softtabstop=2
 " make Y yank to end of line
 nnoremap Y y$
 
-" use netrw to open files
-let g:netrw_hide=1
-let g:netrw_list_hide='^\.'
-let g:netrw_banner=0
-let g:netrw_liststyle=2
-let g:netrw_cursor=0
-nnoremap <C-o> :Explore<CR>
-
-" set netrw sorting order (folders first, case insensitive)
-let g:netrw_sort_sequence="[\/]$"
-let g:netrw_sort_options="i"
-
 " misc settings
 set hidden
 set nowrap
@@ -203,7 +193,7 @@ set list
 " control-enter inserts newline
 map <NL> i<CR><ESC>l
 
-" make search smarter, ctrl-l clear search
+" make search smarter
 set hlsearch
 set ignorecase
 set smartcase
