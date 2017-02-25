@@ -71,7 +71,7 @@ Plugin 'yegappan/mru'
 Plugin 'b4winckler/vim-angry'
 Plugin 'ap/vim-buftabline'
 Plugin 'lifepillar/vim-mucomplete'
-Plugin 'ap/vim-readdir'
+Plugin 'randomekek/vim-readdir'
 call vundle#end()
 filetype plugin indent on
 
