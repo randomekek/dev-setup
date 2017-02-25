@@ -68,8 +68,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'yegappan/mru'
-Plugin 'wellle/targets.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'b4winckler/vim-angry'
 Plugin 'ap/vim-buftabline'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'ap/vim-readdir'
@@ -95,9 +94,6 @@ hi MatchParen ctermbg=none cterm=none
 
 " yegappan/mru
 nnoremap <C-p> :MRU<CR>
-
-" nathanaelkane/vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
 
 " ap/vim-buftabline
 hi TabLine cterm=none
