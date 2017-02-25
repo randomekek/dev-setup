@@ -99,6 +99,7 @@ nnoremap <C-p> :MRU<CR>
 hi TabLine cterm=none
 hi TabLineFill cterm=none
 hi TabLineSel cterm=reverse
+let g:buftabline_indicators = 1
 
 " lifepillar/vim-mucomplete
 set shortmess+=c
