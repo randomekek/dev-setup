@@ -177,6 +177,7 @@ set history=2000
 silent ! mkdir -p /tmp/vim_undo
 set undofile
 set undodir=/tmp/vim_undo
+set noswapfile
 
 " buffer movement, unsaved changes are kept
 nnoremap <tab> :bn!<CR>
