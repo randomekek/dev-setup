@@ -9,7 +9,7 @@
 " backtick for copy and paste `
 
 " functions
-function ShowDiffAll()
+function! ShowDiffAll()
   silent! bdelete diff
   let diff_path = expand('%:p:h')
   enew
@@ -20,7 +20,7 @@ function ShowDiffAll()
   normal! gg
   join
 endfunction
-function ShowDiffSingle()
+function! ShowDiffSingle()
   silent! bdelete diff
   let diff_path = expand('%:p:h')
   let diff_file = expand('%:p')
@@ -32,7 +32,7 @@ function ShowDiffSingle()
   normal! gg
   join
 endfunction
-function NrBufs()
+function! NrBufs()
   let i = bufnr('$')
   let j = 0
   while i >= 1
@@ -43,7 +43,7 @@ function NrBufs()
   endwhile
   return j
 endfunction
-function CloseSplitBufferOrVim()
+function! CloseSplitBufferOrVim()
   if winnr('$') > 1
     wincmd c
   elseif NrBufs() == 1
@@ -70,8 +70,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'yegappan/mru'
 Plugin 'b4winckler/vim-angry'
 Plugin 'ap/vim-buftabline'
-Plugin 'lifepillar/vim-mucomplete'
 Plugin 'randomekek/vim-readdir'
+Plugin 'randomekek/vim-lcomplete'
 call vundle#end()
 filetype plugin indent on
 
@@ -100,12 +100,6 @@ hi TabLine cterm=none
 hi TabLineFill cterm=none
 hi TabLineSel cterm=reverse
 let g:buftabline_indicators = 1
-
-" lifepillar/vim-mucomplete
-set shortmess+=c
-set completeopt=menuone,noinsert,noselect
-set complete=.,b
-let g:mucomplete#enable_auto_at_startup = 1
 
 " ap/vim-readdir
 let g:loaded_netrwPlugin = 1
@@ -149,11 +143,11 @@ nnoremap vv <C-V>
 " use / to exit normal mode, make it time out fast
 inoremap / <Esc>
 inoremap ?? /
-set timeoutlen=220
-set ttimeoutlen=20
+set timeoutlen=300
+set ttimeoutlen=30
 
 " some shortcuts for cpp
-inoremap .. ->
+inoremap -- ->
 inoremap 90 ()
 inoremap ;; ::
 
