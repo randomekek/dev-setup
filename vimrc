@@ -107,13 +107,6 @@ let g:loaded_netrwPlugin = 1
 nnoremap <C-o> :e %:p:h<CR>
 "=============================
 
-" show git diffs
-nnoremap <C-d> :call ShowDiffAll()<CR>
-nnoremap <C-d>d :call ShowDiffSingle()<CR>
-
-" make q close buffers
-map q :call CloseSplitBufferOrVim()<CR>
-
 " allow utf8
 set encoding=utf-8
 setglobal fileencoding=utf-8
@@ -128,6 +121,64 @@ set scrolloff=6
 set ruler
 set number
 
+" smart tabs
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+" misc settings
+set history=2000
+set nowrap
+
+" enable undo
+silent ! mkdir -p /tmp/vim_undo
+set undofile
+set undodir=/tmp/vim_undo
+set noswapfile
+
+" buffer movement, unsaved changes are kept
+set hidden
+nnoremap <tab> :bn!<CR>
+nnoremap <S-tab> :bp!<CR>
+
+" trailing characters
+hi SpecialKey term=NONE cterm=NONE ctermbg=15 ctermfg=11
+set listchars=tab:\ \ ,trail:·
+set list
+
+" make search smarter
+set hlsearch
+set ignorecase
+set smartcase
+
+" make backspace go through lines
+set backspace=indent,eol,start
+
+" let cursor move beyond end
+set virtualedit=onemore
+
+"" keyboard shortcuts ""
+
+" use / to exit normal mode, make it time out fast
+inoremap / <Esc>
+inoremap ?? /
+set timeoutlen=300
+set ttimeoutlen=30
+
+" save with minus
+map - :w<CR>:nohlsearch<CR>
+
+" make q close buffers
+map q :call CloseSplitBufferOrVim()<CR>
+
+" control-j inserts newline
+map <C-j> i<CR><ESC>l
+
+" make Y yank to end of line
+nnoremap Y y$
+
 " use x integration if $DISPLAY is set
 if empty($DISPLAY) || !has('xterm_clipboard')
   map <C-V> :read!cat<CR>
@@ -141,60 +192,11 @@ endif
 " get back visual block mode
 nnoremap vv <C-V>
 
-" use / to exit normal mode, make it time out fast
-inoremap / <Esc>
-inoremap ?? /
-set timeoutlen=300
-set ttimeoutlen=30
-
 " some shortcuts for cpp
 inoremap -- ->
 inoremap 90 ()
 inoremap ;; ::
 
-" smart tabs
-set autoindent
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-
-" make Y yank to end of line
-nnoremap Y y$
-
-" misc settings
-set history=2000
-
-" enable undo
-silent ! mkdir -p /tmp/vim_undo
-set undofile
-set undodir=/tmp/vim_undo
-set noswapfile
-
-" buffer movement, unsaved changes are kept
-set hidden
-set nowrap
-nnoremap <tab> :bn!<CR>
-nnoremap <S-tab> :bp!<CR>
-
-" trailing characters
-hi SpecialKey term=NONE cterm=NONE ctermbg=15 ctermfg=11
-set listchars=tab:\ \ ,trail:·
-set list
-
-" control-enter inserts newline
-map <NL> i<CR><ESC>l
-
-" make search smarter
-set hlsearch
-set ignorecase
-set smartcase
-
-" make backspace go through lines
-set backspace=indent,eol,start
-
-" save with minus
-map - :w<CR>:nohlsearch<CR>
-
-" let cursor move beyond end
-set virtualedit=onemore
+" show git diffs
+nnoremap <C-d> :call ShowDiffAll()<CR>
+nnoremap <C-d>d :call ShowDiffSingle()<CR>
