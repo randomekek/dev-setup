@@ -1,12 +1,5 @@
 " useful vim keyboard shortcuts
-" ci? - change inside ()b {}B <> [] " '
-" ca? - change around brackets
-" s/../../c - confirm replacements
-" "2p - paste previously deleted item
 " (selection)!python -c "import json, sys; print json.dumps(json.load(sys.stdin), indent=2)"
-" Use <C-o> in insert mode to enter normal mode for one command
-" Use <C-p> or :MRU to see most recently closed files
-" backtick for copy and paste `
 
 " functions
 function! ShowDiffAll()
@@ -118,7 +111,6 @@ set visualbell
 set scrolloff=6
 
 " line numbers
-set ruler
 set number
 
 " smart tabs
@@ -132,7 +124,7 @@ set softtabstop=2
 set history=2000
 set nowrap
 
-" enable undo
+" enable persistent undo
 silent ! mkdir -p /tmp/vim_undo
 set undofile
 set undodir=/tmp/vim_undo
@@ -143,7 +135,7 @@ set hidden
 nnoremap <tab> :bn!<CR>
 nnoremap <S-tab> :bp!<CR>
 
-" trailing characters
+" highlight trailing characters
 hi SpecialKey term=NONE cterm=NONE ctermbg=15 ctermfg=11
 set listchars=tab:\ \ ,trail:·
 set list
