@@ -91,6 +91,7 @@ set background=light
 set t_Co=256
 colorscheme solarized
 hi MatchParen ctermbg=none cterm=none
+set colorcolumn=80
 
 " yegappan/mru
 nnoremap <C-p> :MRU<CR>
@@ -162,9 +163,6 @@ set softtabstop=2
 nnoremap Y y$
 
 " misc settings
-set hidden
-set nowrap
-set cc=80
 set history=2000
 
 " enable undo
@@ -174,6 +172,8 @@ set undodir=/tmp/vim_undo
 set noswapfile
 
 " buffer movement, unsaved changes are kept
+set hidden
+set nowrap
 nnoremap <tab> :bn!<CR>
 nnoremap <S-tab> :bp!<CR>
 
