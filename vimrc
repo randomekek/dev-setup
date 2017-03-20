@@ -77,8 +77,6 @@ let g:EasyMotion_keys = "asdghklqwertyuiopzxcvbnm123890-=.',;fj"
 let g:EasyMotion_enter_jump_first = 1
 
 " altercation/vim-colors-solarized
-" let g:solarized_contrast = "high"
-" let g:solarized_visibility = "high"
 syntax enable
 set background=light
 set t_Co=256
