@@ -110,6 +110,7 @@ set scrolloff=6
 
 " line numbers
 set number
+set noruler
 
 " smart tabs
 set autoindent
