@@ -2,28 +2,27 @@
 " (selection)!python -c "import json, sys; print json.dumps(json.load(sys.stdin), indent=2)"
 
 " functions
-function! ShowDiffAll()
-  silent! bdelete diff
-  let diff_path = expand('%:p:h')
+function! ExecuteBash(name, cmd)
+  silent! execute "bdelete " a:name
   enew
-  silent execute 'r! cd "' . diff_path . '"; git diff'
-  set filetype=diff
+  silent! execute "file " a:name
+  normal! iLoading...
   set buftype=nofile
-  silent f diff
+  redraw
+  silent execute a:cmd
   normal! gg
-  join
+  normal! dd
+endfunction
+function! ShowDiffAll()
+  let diff_path = expand('%:p:h')
+  call ExecuteBash("diff", 'r! cd "' . diff_path . '"; git diff')
+  set filetype=diff
 endfunction
 function! ShowDiffSingle()
-  silent! bdelete diff
   let diff_path = expand('%:p:h')
   let diff_file = expand('%:p')
-  enew
-  silent execute 'r! cd "' . diff_path . '"; git diff ' . diff_file
+  call ExecuteBash("diff", 'r! cd "' . diff_path . '"; git diff ' . diff_file)
   set filetype=diff
-  set buftype=nofile
-  silent f diff
-  normal! gg
-  join
 endfunction
 function! NrBufs()
   let i = bufnr('$')
@@ -81,7 +80,7 @@ syntax enable
 set background=light
 set t_Co=256
 colorscheme solarized
-hi MatchParen ctermbg=none cterm=none
+hi MatchParen ctermbg=7 cterm=none
 set colorcolumn=80
 
 " yegappan/mru
