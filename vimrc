@@ -11,7 +11,7 @@ function! ExecuteBash(name, cmd)
   redraw
   silent execute a:cmd
   normal! gg
-  normal! dd
+  normal! "_dd
 endfunction
 function! ShowDiffAll()
   let diff_path = expand('%:p:h')
