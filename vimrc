@@ -59,6 +59,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'yegappan/mru'
 Plugin 'b4winckler/vim-angry'
 Plugin 'ap/vim-buftabline'
@@ -78,8 +79,14 @@ let g:EasyMotion_enter_jump_first = 1
 " altercation/vim-colors-solarized
 syntax enable
 set background=light
-set t_Co=256
-colorscheme solarized
+" 24 bit color
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+  colorscheme solarized8
+" 256 color
+" set t_Co=256
+" colorscheme solarized
 hi MatchParen ctermbg=7 cterm=none
 set colorcolumn=80
 
@@ -91,6 +98,7 @@ hi TabLine cterm=none
 hi TabLineFill cterm=none
 hi TabLineSel cterm=reverse
 let g:buftabline_indicators = 1
+let laststatus=1
 
 " ap/vim-readdir
 let g:loaded_netrwPlugin = 1
@@ -102,7 +110,7 @@ set encoding=utf-8
 setglobal fileencoding=utf-8
 
 " disable visual bell
-set visualbell
+set novisualbell
 
 " do not allow scrolling to top or bottom of page
 set scrolloff=6
