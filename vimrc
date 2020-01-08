@@ -14,11 +14,17 @@ function! ExecuteBash(name, cmd)
   normal! "_dd
 endfunction
 function! ShowDiffAll()
+  call GitDiffAll()
+endfunction
+function! ShowDiffSingle()
+  call GitDiffSingle()
+endfunction
+function! GitDiffAll()
   let diff_path = expand('%:p:h')
   call ExecuteBash("diff", 'r! cd "' . diff_path . '"; git diff')
   set filetype=diff
 endfunction
-function! ShowDiffSingle()
+function! GitDiffSingle()
   let diff_path = expand('%:p:h')
   let diff_file = expand('%:p')
   call ExecuteBash("diff", 'r! cd "' . diff_path . '"; git diff ' . diff_file)
