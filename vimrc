@@ -64,7 +64,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'lifepillar/vim-solarized8'
 Plugin 'yegappan/mru'
 Plugin 'b4winckler/vim-angry'
@@ -85,15 +84,11 @@ let g:EasyMotion_enter_jump_first = 1
 " altercation/vim-colors-solarized
 syntax enable
 set background=light
-" 24 bit color
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-  colorscheme solarized8
-" 256 color
-" set t_Co=256
-" colorscheme solarized
-hi MatchParen ctermbg=7 cterm=none
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+colorscheme solarized8
+hi MatchParen cterm=none
 set colorcolumn=80
 
 " yegappan/mru
