@@ -102,6 +102,7 @@ let g:buftabline_indicators = 1
 let laststatus=1
 
 " ap/vim-readdir
+let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 nnoremap <C-o> :e %:p:h<CR>
 "=============================
