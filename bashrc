@@ -14,5 +14,5 @@ export LESS="-SRi"
 export PROMPT_DIRTRIM=3
 
 # prompt
-export PS1="$(printf '\x1b[38;2;38;139;210m\\t \\w\x1b[0m\n') "
-# PS1="\[\e[0;34m\]\h \t \w>\[\e[m\] "
+export PS1="\[\e[38;2;38;139;210m\]\t \w\[\e[0m\] "
+# export PS1="\[\e[0;34m\]\h \t \w>\[\e[m\] "
