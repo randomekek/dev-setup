@@ -113,6 +113,7 @@ setglobal fileencoding=utf-8
 
 " disable visual bell
 set novisualbell
+set shortmess+=F
 
 " do not allow scrolling to top or bottom of page
 set scrolloff=6
