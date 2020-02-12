@@ -12,6 +12,10 @@ alias untgz='tar -zxvf'
 alias :e='vim'
 export LESS="-SRi"
 export PROMPT_DIRTRIM=3
+function vimg() {
+  cd $(git rev-parse --show-toplevel)
+  vim $(git status --porcelain | awk '{print $2}')
+}
 
 # disable ctrl+s
 stty -ixon 
