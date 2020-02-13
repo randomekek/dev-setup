@@ -18,7 +18,9 @@ function vimg() {
 }
 
 # disable ctrl+s
-stty -ixon 
+stty -ixon
+# expand tabs immediately
+set show-all-if-ambiguous on
 
 # prompt
 export PS1='\[\e[38;2;38;139;210m\]\t \w\[\e[0m\]$(__git_ps1 " \[\e[38;2;211;54;130m\][%s]\[\e[0m\]") '
