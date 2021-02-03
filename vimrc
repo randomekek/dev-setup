@@ -171,6 +171,10 @@ set ttimeoutlen=30
 " save with minus
 map - :w<CR>:nohlsearch<CR>
 
+ " make :e show all files if ambiguous
+set wildmode=longest:full,full
+set wildmenu
+
 " make q close buffers
 map q :call CloseSplitBufferOrVim()<CR>
 
