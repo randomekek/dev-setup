@@ -1,0 +1,37 @@
+{
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "vim.easymotion": true,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": ["/"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["?", "?"],
+            "after": ["/"]
+        },
+        {
+            "before": ["9", "0"],
+            "after": ["(", ")"]
+        }
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["-"],
+            "commands": [":nohlsearch", ":w"]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["i", "<CR>", "<Esc>", "l"]
+        },
+        {
+            "before": ["v", "v"],
+            "after": ["<C-v>"]
+        }
+    ],
+    "workbench.colorTheme": "Solarized Dark",
+    "window.zoomLevel": 2,
+    "vim.timeout": 300,
+}
