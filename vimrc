@@ -51,11 +51,6 @@ function! CloseSplitBufferOrVim()
   endif
 endfunction
 
-" local changes
-if filereadable(glob("~/.vimrc.local")) 
-    source ~/.vimrc.local
-endif
-
 " plugins
 "=============================
 set nocompatible
@@ -99,7 +94,7 @@ hi TabLine cterm=none
 hi TabLineFill cterm=none
 hi TabLineSel cterm=reverse
 let g:buftabline_indicators = 1
-let laststatus=1
+set laststatus=1
 
 " ap/vim-readdir
 let g:loaded_netrw = 1
@@ -171,7 +166,7 @@ set ttimeoutlen=30
 " save with minus
 map - :w<CR>:nohlsearch<CR>
 
- " make :e show all files if ambiguous
+" make :e show all files if ambiguous
 set wildmode=longest:full,full
 set wildmenu
 
@@ -185,10 +180,10 @@ map <C-j> i<CR><ESC>l
 nnoremap Y y$
 
 " use x integration if $DISPLAY is set
-if empty($DISPLAY) || !has('xterm_clipboard')
+if empty($DISPLAY)
   map <C-V> :read!cat<CR>
   imap <C-V> <C-o>:read!cat<CR>
-else 
+else
   map <C-V> "+P
   imap <C-V> <C-r><C-o>+
   vmap <C-C> "+y
@@ -205,3 +200,11 @@ inoremap ;; ::
 " show git diffs
 nnoremap <C-d> :call ShowDiffAll()<CR>
 nnoremap <C-d>d :call ShowDiffSingle()<CR>
+
+" use block cursor
+set guicursor=i:block
+
+" local changes
+if filereadable(glob("~/.vimrc.local")) 
+    source ~/.vimrc.local
+endif
