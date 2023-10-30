@@ -35,6 +35,19 @@
         {
             "before": [" "],
             "after": ["leader", "leader", "s"],
+        },
+        {
+            "before": ["`"],
+            "commands": ["workbench.action.terminal.focus"],
+            "when": "!terminalFocusInAny"
+        },
+        {
+            "before": ["tab"],
+            "commands": ["workbench.action.nextEditor"],
+        },
+        {
+            "before": ["shift+tab"],
+            "commands": ["workbench.action.previousEditor"],
         }
     ],
     "workbench.colorTheme": "Solarized Dark",
