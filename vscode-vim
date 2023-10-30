@@ -40,6 +40,10 @@
       "commands": ["workbench.action.previousEditor"]
     },
     {
+      "before": ["<C-d>"],
+      "commands": ["scm.OpenDiff"]
+    },
+    {
       "before": ["<C-j>"],
       "after": ["i", "<CR>", "<Esc>", "l"]
     },
