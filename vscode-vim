@@ -50,7 +50,11 @@
     {
       "before": [" "],
       "after": ["leader", "leader", "s"]
-    }
+    },
+    {
+      "before": ["Y"],
+      "after": ["y", "$"]
+    },
   ],
   "workbench.colorTheme": "Solarized Dark",
   "vim.timeout": 300,
