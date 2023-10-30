@@ -1,0 +1,17 @@
+[
+  {
+    "key": "k",
+    "command": "workbench.action.terminal.scrollUpPage",
+    "when": "terminalFocusInAny"
+  },
+  {
+    "key": "j",
+    "command": "workbench.action.terminal.scrollDownPage",
+    "when": "terminalFocusInAny"
+  },
+  {
+    "key": "`",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocusInAny"
+  },
+]
