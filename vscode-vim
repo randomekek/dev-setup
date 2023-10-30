@@ -1,60 +1,58 @@
 {
-    "[python]": {
-        "editor.formatOnType": true,
-        "editor.defaultFormatter": "ms-python.python",
-        "editor.tabSize": 2
+  "[python]": {
+    "editor.tabSize": 2
+  },
+  "vim.easymotion": true,
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["/"],
+      "after": ["<Esc>"]
     },
-    "vim.easymotion": true,
-    "vim.insertModeKeyBindingsNonRecursive": [
-        {
-            "before": ["/"],
-            "after": ["<Esc>"]
-        },
-        {
-            "before": ["?", "?"],
-            "after": ["/"]
-        },
-        {
-            "before": ["9", "0"],
-            "after": ["(", ")"]
-        }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": ["-"],
-            "commands": [":nohlsearch", ":w"]
-        },
-        {
-            "before": ["<C-j>"],
-            "after": ["i", "<CR>", "<Esc>", "l"]
-        },
-        {
-            "before": ["v", "v"],
-            "after": ["<C-v>"]
-        },
-        {
-            "before": [" "],
-            "after": ["leader", "leader", "s"],
-        },
-        {
-            "before": ["`"],
-            "commands": ["workbench.action.terminal.focus"],
-            "when": "!terminalFocusInAny"
-        },
-        {
-            "before": ["tab"],
-            "commands": ["workbench.action.nextEditor"],
-        },
-        {
-            "before": ["shift+tab"],
-            "commands": ["workbench.action.previousEditor"],
-        }
-    ],
-    "workbench.colorTheme": "Solarized Dark",
-    "window.zoomLevel": 2,
-    "vim.timeout": 300,
-    "python.formatting.provider": "none",
-    "notebook.cellFocusIndicator": "border",
-    "notebook.output.textLineLimit": 5000,
-    "editor.minimap.enabled": false,
+    {
+      "before": ["?", "?"],
+      "after": ["/"]
+    },
+    {
+      "before": ["9", "0"],
+      "after": ["(", ")"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["-"],
+      "commands": [":nohlsearch", ":w"]
+    },
+    {
+      "before": ["q"],
+      "commands": ["workbench.action.closeActiveEditor"]
+    },
+    {
+      "before": ["`"],
+      "commands": ["workbench.action.terminal.focus"],
+      "when": "!terminalFocusInAny"
+    },
+    {
+      "before": ["tab"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["shift+tab"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<C-j>"],
+      "after": ["i", "<CR>", "<Esc>", "l"]
+    },
+    {
+      "before": ["v", "v"],
+      "after": ["<C-v>"]
+    },
+    {
+      "before": [" "],
+      "after": ["leader", "leader", "s"]
+    }
+  ],
+  "workbench.colorTheme": "Solarized Dark",
+  "vim.timeout": 300,
+  "editor.minimap.enabled": false
 }
