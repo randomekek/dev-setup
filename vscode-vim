@@ -3,6 +3,7 @@
     "editor.tabSize": 2
   },
   "vim.easymotion": true,
+  "vim.hlsearch": true,
   "vim.insertModeKeyBindingsNonRecursive": [
     {
       "before": ["/"],
