@@ -1,5 +1,6 @@
 {
   // color scheme
+  "window.zoomLevel": 2,
   "workbench.colorTheme": "Solarized Light",
   "workbench.colorCustomizations": {
     // contrast plain text
