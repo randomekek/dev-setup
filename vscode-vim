@@ -23,6 +23,7 @@
   // less distracting cursor
   "editor.cursorStyle": "block-outline",
   "editor.cursorBlinking": "solid",
+  "editor.autoClosingBrackets": "never",
 
   // hide right stuff
   "editor.overviewRulerBorder": false,
