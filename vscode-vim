@@ -2,8 +2,13 @@
   "[python]": {
     "editor.tabSize": 2
   },
+  "workbench.colorTheme": "Solarized Dark",
+  "editor.minimap.enabled": false,
+  "editor.cursorSurroundingLines": 6,
+  "editor.occurrencesHighlight": false,
   "vim.easymotion": true,
   "vim.hlsearch": true,
+  "vim.timeout": 300,
   "vim.insertModeKeyBindingsNonRecursive": [
     {
       "before": ["/"],
@@ -60,8 +65,5 @@
       "before": ["Y"],
       "after": ["y", "$"]
     },
-  ],
-  "workbench.colorTheme": "Solarized Dark",
-  "vim.timeout": 300,
-  "editor.minimap.enabled": false
+  ]
 }
