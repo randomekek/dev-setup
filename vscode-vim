@@ -2,10 +2,38 @@
   "[python]": {
     "editor.tabSize": 2
   },
-  "workbench.colorTheme": "Solarized Dark",
-  "editor.minimap.enabled": false,
+
+  // color scheme
+  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorCustomizations": {
+    // contrast plain text
+    "editor.foreground": "#586e75",
+    // less visible number ruler
+    "editorGutter.background": "#eee8d5",
+    "editorLineNumber.foreground": "#839496",
+  },
+
+  // scrolling easier
   "editor.cursorSurroundingLines": 6,
+
+  // use hlsearch rather than current word
   "editor.occurrencesHighlight": false,
+
+  // make number ruler smaller
+  "editor.folding": false,
+  "editor.glyphMargin": false,
+
+  // less distracting cursor
+  "editor.cursorStyle": "block-outline",
+  "editor.cursorBlinking": "solid",
+
+  // hide right stuff
+  "editor.overviewRulerBorder": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "hidden",
+
+  // vim settings
   "vim.easymotion": true,
   "vim.hlsearch": true,
   "vim.timeout": 300,
@@ -21,6 +49,10 @@
     {
       "before": ["9", "0"],
       "after": ["(", ")"]
+    },
+    {
+      "before": [";", ";"],
+      "after": [":", ":"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
