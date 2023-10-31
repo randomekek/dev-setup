@@ -20,10 +20,11 @@
   "editor.folding": false,
   "editor.glyphMargin": false,
 
-  // less distracting cursor
+  // less distracting
   "editor.cursorStyle": "block-outline",
   "editor.cursorBlinking": "solid",
   "editor.autoClosingBrackets": "never",
+  "editor.guides.indentation": false,
 
   // hide right stuff
   "editor.overviewRulerBorder": false,
