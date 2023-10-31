@@ -1,8 +1,4 @@
 {
-  "[python]": {
-    "editor.tabSize": 2
-  },
-
   // color scheme
   "workbench.colorTheme": "Solarized Light",
   "workbench.colorCustomizations": {
@@ -32,6 +28,10 @@
   "editor.hideCursorInOverviewRuler": true,
   "editor.minimap.enabled": false,
   "editor.scrollbar.vertical": "hidden",
+
+  // tab sizes
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
 
   // vim settings
   "vim.easymotion": true,
@@ -65,11 +65,6 @@
       "commands": ["workbench.action.closeActiveEditor"]
     },
     {
-      "before": ["`"],
-      "commands": ["workbench.action.terminal.focus"],
-      "when": "!terminalFocusInAny"
-    },
-    {
       "before": ["tab"],
       "commands": ["workbench.action.nextEditor"]
     },
@@ -97,5 +92,7 @@
       "before": ["Y"],
       "after": ["y", "$"]
     },
-  ]
+  ],
+
+  // adhoc changes
 }
