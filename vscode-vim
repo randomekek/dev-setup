@@ -31,6 +31,7 @@
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.horizontal": "hidden",
   "window.commandCenter": false,
+  "window.menuBarVisibility": "toggle",
   "workbench.statusBar.visible": false,
   "breadcrumbs.enabled": false,
   "editor.renderLineHighlight": "none",
