@@ -1,6 +1,4 @@
 {
-  // color scheme
-  "window.zoomLevel": 2,
   "workbench.colorTheme": "Solarized Light",
   "workbench.colorCustomizations": {
     // contrast plain text
@@ -26,11 +24,17 @@
   "editor.autoClosingBrackets": "never",
   "editor.guides.indentation": false,
 
-  // hide right stuff
+  // hide useless stuff
   "editor.overviewRulerBorder": false,
   "editor.hideCursorInOverviewRuler": true,
   "editor.minimap.enabled": false,
   "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "window.commandCenter": false,
+  "workbench.statusBar.visible": false,
+  "breadcrumbs.enabled": false,
+  "editor.renderLineHighlight": "none",
+  "window.title": " ",
 
   // tab sizes
   "editor.insertSpaces": true,
