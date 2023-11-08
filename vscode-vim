@@ -23,6 +23,7 @@
   "editor.cursorBlinking": "solid",
   "editor.autoClosingBrackets": "never",
   "editor.guides.indentation": false,
+  "editor.bracketPairColorization.enabled": false,
 
   // hide useless stuff
   "editor.overviewRulerBorder": false,
