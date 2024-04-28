@@ -2,11 +2,14 @@ sudo vim /etc/apt/apt.conf.d/00aptitude
   APT::Install-Recommends "false";
   APT::Install-Suggests "false";
 
-sudo apt install vim lightdm xorg xfce4 xfce4-panel thunar xfce4-terminal pulseaudio gnome-keyring synaptic fonts-noto fonts-noto-cjk git
+sudo apt install vim lightdm xorg xfce4 xfce4-panel thunar xfce4-terminal pulseaudio gnome-keyring synaptic fonts-noto fonts-noto-cjk git gcc g++ python3-venv
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-
 sudo apt install ./google-chrome-stable_current_amd64.deb
 
 sudo vim /etc/lightdm/lightdm.conf
   autologin-user=...
+
+wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb
+sudo apt install ./cuda-keyring_1.1-1_all.deb
+sudo apt install cuda nvidia-drivers
