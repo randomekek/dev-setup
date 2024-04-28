@@ -2,7 +2,7 @@ sudo vim /etc/apt/apt.conf.d/00aptitude
   APT::Install-Recommends "false";
   APT::Install-Suggests "false";
 
-sudo apt install vim lightdm xorg xfce4 xfce4-panel thunar xfce4-session xfce4-settings xfce4-terminal xfwm4 xfdesktop4 xfconf libxfce4ui-utils pulseaudio gnome-keyring synaptic
+sudo apt install vim lightdm xorg xfce4 xfce4-panel thunar xfce4-terminal pulseaudio gnome-keyring synaptic
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 
