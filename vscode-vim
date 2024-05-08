@@ -1,4 +1,5 @@
 {
+  // look better
   "workbench.colorTheme": "Solarized Light",
   "workbench.colorCustomizations": {
     // contrast plain text
@@ -12,7 +13,7 @@
   "editor.cursorSurroundingLines": 6,
 
   // use hlsearch rather than current word
-  "editor.occurrencesHighlight": false,
+  "editor.occurrencesHighlight": "off",
 
   // make number ruler smaller
   "editor.folding": false,
@@ -23,7 +24,6 @@
   "editor.cursorBlinking": "solid",
   "editor.autoClosingBrackets": "never",
   "editor.guides.indentation": false,
-  "editor.bracketPairColorization.enabled": false,
 
   // hide useless stuff
   "editor.overviewRulerBorder": false,
@@ -33,14 +33,35 @@
   "editor.scrollbar.horizontal": "hidden",
   "window.commandCenter": false,
   "window.menuBarVisibility": "toggle",
-  "workbench.statusBar.visible": false,
   "breadcrumbs.enabled": false,
   "editor.renderLineHighlight": "none",
   "window.title": " ",
+  "workbench.startupEditor": "none",
+  "workbench.layoutControl.enabled": false,
+  "workbench.sideBar.location": "right",
 
   // tab sizes
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
+
+  // Python
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8",
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+  },
+  "autopep8.args": [
+    "--max-line-length=120",
+    "--ignore=E226,E306",
+  ],
+  "jupyter.interactiveWindow.creationMode": "perFile",
+  "jupyter.askForKernelRestart": false,
+
+  // Git
+  "diffEditor.renderSideBySide": false,
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
 
   // vim settings
   "vim.easymotion": true,
@@ -48,60 +69,150 @@
   "vim.timeout": 300,
   "vim.insertModeKeyBindingsNonRecursive": [
     {
-      "before": ["/"],
-      "after": ["<Esc>"]
+      "before": [
+        "/"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     },
     {
-      "before": ["?", "?"],
-      "after": ["/"]
+      "before": [
+        "?",
+        "?"
+      ],
+      "after": [
+        "/"
+      ]
     },
     {
-      "before": ["9", "0"],
-      "after": ["(", ")"]
+      "before": [
+        "9",
+        "0"
+      ],
+      "after": [
+        "(",
+        ")"
+      ]
     },
     {
-      "before": [";", ";"],
-      "after": [":", ":"]
+      "before": [
+        ";",
+        ";"
+      ],
+      "after": [
+        ":",
+        ":"
+      ]
+    },
+    {
+      "before": [
+        "`",
+      ],
+      "commands": [
+        "workbench.action.focusRightGroup",
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["-"],
-      "commands": [":nohlsearch", ":w"]
+      "before": [
+        "-"
+      ],
+      "commands": [
+        ":nohlsearch",
+        ":w"
+      ]
     },
     {
-      "before": ["q"],
-      "commands": ["workbench.action.closeActiveEditor"]
+      "before": [
+        "q"
+      ],
+      "commands": [
+        "workbench.action.closeActiveEditor"
+      ]
     },
     {
-      "before": ["tab"],
-      "commands": ["workbench.action.nextEditor"]
+      "before": [
+        "tab"
+      ],
+      "commands": [
+        "workbench.action.nextEditorInGroup"
+      ]
     },
     {
-      "before": ["shift+tab"],
-      "commands": ["workbench.action.previousEditor"]
+      "before": [
+        "shift+tab"
+      ],
+      "commands": [
+        "workbench.action.previousEditorInGroup"
+      ]
     },
     {
-      "before": ["<C-d>"],
-      "commands": ["scm.OpenDiff"]
+      "before": [
+        "<C-d>"
+      ],
+      "commands": [
+        "git.openChange"
+      ]
     },
     {
-      "before": ["<C-j>"],
-      "after": ["i", "<CR>", "<Esc>", "l"]
+      "before": [
+        "<C-j>"
+      ],
+      "after": [
+        "i",
+        "<CR>",
+        "<Esc>",
+        "l"
+      ]
     },
     {
-      "before": ["v", "v"],
-      "after": ["<C-v>"]
+      "before": [
+        "v",
+        "v"
+      ],
+      "after": [
+        "<C-v>"
+      ]
     },
     {
-      "before": [" "],
-      "after": ["leader", "leader", "s"]
+      "before": [
+        " "
+      ],
+      "after": [
+        "leader",
+        "leader",
+        "s"
+      ]
     },
     {
-      "before": ["Y"],
-      "after": ["y", "$"]
+      "before": [
+        "Y"
+      ],
+      "after": [
+        "y",
+        "$"
+      ]
     },
+    {
+      "before": [
+        "e",
+        "t"
+      ],
+      "commands": [
+        "jupyter.runcurrentcell"
+      ]
+    },
+    {
+      "before": [
+        "`"
+      ],
+      "commands": [
+        "workbench.action.focusRightGroup"
+      ]
+    }
   ],
-
   // adhoc changes
+
 }
