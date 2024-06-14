@@ -1,10 +1,11 @@
-#!/bin/bash
-
 sudo vim /etc/apt/apt.conf.d/00aptitude
 # add: APT::Install-Recommends "false";
 # add: APT::Install-Suggests "false";
 
-sudo apt install vim lightdm xorg xfce4 xfce4-panel thunar xfce4-terminal pulseaudio gnome-keyring synaptic fonts-noto fonts-noto-cjk git gcc g++ python3-venv
+sudo apt install vim lightdm xorg xfce4 xfce4-panel thunar xfce4-terminal pulseaudio gnome-keyring network-manager-gnome
+sudo apt install fonts-noto fonts-noto-mono fonts-noto-cjk
+sudo apt install git gcc g++ python3-venv
+sudo apt install synaptic command-not-found baobab gparted strace iotop
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./google-chrome-stable_current_amd64.deb
@@ -12,11 +13,19 @@ sudo apt install ./google-chrome-stable_current_amd64.deb
 sudo vim /etc/lightdm/lightdm.conf
 # add: autologin-user=...
 
+# fix networking: remove references to wifi from /etc/network/interfaces
+# add a Tray widget to xfce
+# reboot and log into wifi again 
+
 wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cuda-keyring_1.1-1_all.deb
 sudo apt install ./cuda-keyring_1.1-1_all.deb
-sudo apt install cuda nvidia-drivers
+# add: "contrib non-free" to the debian package sets list
+sudo apt install cuda nvidia-drivers linux-headers-$(uname -r)
+
+vim ~/.config/pip/pip.conf
+# [global]
+# cache-dir=/home/david/.pip-cache
 
 python3 -m venv venv
-pip install --upgrade pip
-pip install --upgrade "jax[cuda12_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
-pip install --upgrade equinox einops optax matplotlib
+source .venv/bin/activate
+pip install --upgrade pip "jax[cuda12_pip]" einops optax
