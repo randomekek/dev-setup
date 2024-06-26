@@ -4,7 +4,7 @@ sudo vim /etc/apt/apt.conf.d/00aptitude
 
 sudo apt install vim lightdm xorg xfce4 xfce4-panel thunar xfce4-terminal pulseaudio gnome-keyring network-manager-gnome
 sudo apt install fonts-noto fonts-noto-mono fonts-noto-cjk
-sudo apt install git gcc g++ python3-venv
+sudo apt install git gcc g++ python3-venv python3-dev
 sudo apt install synaptic command-not-found baobab gparted strace iotop
 
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
