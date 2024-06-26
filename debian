@@ -21,6 +21,8 @@ wget https://developer.download.nvidia.com/compute/cuda/repos/debian12/x86_64/cu
 sudo apt install ./cuda-keyring_1.1-1_all.deb
 # add: "contrib non-free" to the debian package sets list
 sudo apt install cuda nvidia-drivers linux-headers-$(uname -r)
+# important: may need to modprobe nvidia-current-uvm for jax to see cuda devices
+# if required, add it to /etc/modules-load.d/nvidia.conf
 
 vim ~/.config/pip/pip.conf
 # [global]
