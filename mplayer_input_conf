@@ -1,2 +1,7 @@
 KP3 seek -600
+KP2 seek -60
+KP4 seek -6
+
+KP6 seek +6
+KP8 seek +60
 KP9 seek +600
